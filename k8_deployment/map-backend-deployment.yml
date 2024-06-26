@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: map-backend
-  replicas: 1
+  replicas: 3
   minReadySeconds: 15
   strategy:
     type: RollingUpdate

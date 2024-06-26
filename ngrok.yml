@@ -2,8 +2,8 @@ version: "2"
 authtoken: 2iOs1VGkYklT4TFO8prywNzaUEX_4zJNdErLQSQAHD5mPFytV
 tunnels:
   fe:
-    addr: 32048
+    addr: a5df14aa60c834f07b20ff1b6ae6b328-743948711.us-east-1.elb.amazonaws.com
     proto: http    
   be:
-    addr: 32223
+    addr: a172d09b20f184edf9f801579c3200c4-1641375148.us-east-1.elb.amazonaws.com
     proto: http

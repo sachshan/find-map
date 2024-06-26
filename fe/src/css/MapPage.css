@@ -1,0 +1,63 @@
+/* MapPage.css */
+
+.map-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.map-container h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.map-container p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.map-container .map {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.map-container .map .overlay {
+  background-color: rgba(0, 123, 255, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-container .map .overlay:hover {
+  background-color: rgba(0, 123, 255, 1);
+}
+
+.map-container .back-to-login {
+  margin-top: 20px;
+}
+
+.map-container .back-to-login a {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.map-container .back-to-login a:hover {
+  background-color: #0056b3;
+}

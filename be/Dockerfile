@@ -11,6 +11,9 @@ RUN pip3 install -r requirements.txt
 RUN adduser --disabled-password myuser
 USER myuser
 
+ARG GOOGLE_MAPS_API_KEY
+ENV GOOGLE_MAPS_API_KEY $GOOGLE_MAPS_API_KEY
+
 # run gunicorn with 3 threads listening on port 5000.
 EXPOSE 5001
 # CMD gunicorn --threads=3 --bind 0.0.0.0:5000 wsgi:app
