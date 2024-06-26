@@ -1,0 +1,9 @@
+version: "2"
+authtoken: 2iOs1VGkYklT4TFO8prywNzaUEX_4zJNdErLQSQAHD5mPFytV
+tunnels:
+  fe:
+    addr: 32048
+    proto: http    
+  be:
+    addr: 32223
+    proto: http

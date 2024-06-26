@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+
+  be:
+    build:
+      context: ./be
+      dockerfile: Dockerfile
+    ports:
+      - 5004:5000
+    environment:
+      - REDIS_HOST=redis_cache
+      - REDIS_PORT=6379
+    networks:
+      - backend
+
+  fe:
+    stdin_open: true
+    build:
+      context: ./fe
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_SERVER_URL=http://localhost:5004/v1
+        - NODE_ENV=development
+    ports:
+      - 3007:80
+    depends_on:
+      - be
+    # specifies frontend and backend as the networks the fe service will have access to
+    networks:
+      - frontend
+      - backend
+  
+  redis_cache:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    networks:
+      - backend
+      
+# bridge networks to allow the containers to communicate with each other
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
