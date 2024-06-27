@@ -2,7 +2,7 @@ version: 0.2
 
 env:
  variables:
-  REACT_APP_SERVER_URL: 'https://3e89-155-33-134-42.ngrok-free.app/v1'
+  REACT_APP_SERVER_URL: 'https://2cce0d7a8c4d.ngrok.app/v1'
 
 phases:
  pre_build:

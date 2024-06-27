@@ -1,0 +1,20 @@
+
+
+# Redis
+kubectl apply -f k8_deployment/map-redis-deployment.yml
+kubectl apply -f k8_deployment/map-redis-service.yml
+
+# Backend
+kubectl apply -f k8_deployment/map-backend-deployment.yml
+kubectl apply -f k8_deployment/service-map-backend-lb.yml
+
+# Frontend
+kubectl apply -f k8_deployment/map-frontend-deployment.yml
+kubectl apply -f k8_deployment/service-map-frontend-lb.yml
+
+
+
+# I will be running ngrok on my laptop to expose the frontend and backend services as HTTPS endpoints
+# The frontend should be accessible at https://4ad0-155-33-134-42.ngrok-free.app
+# The backend should be accessible at https://3e89-155-33-134-42.ngrok-free.app
+

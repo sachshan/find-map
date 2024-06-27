@@ -6,9 +6,10 @@ import MapPage from './MapPage';
 
 function App() {
 
+
   return (
     <Router>
-      <div>
+      <div className="app-background">
         
         <Routes>
         <Route path="/" element={<LoginPage />} />
