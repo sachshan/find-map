@@ -17,4 +17,3 @@ jwt
 redis
 flask_cors
 googlemaps
-logging
