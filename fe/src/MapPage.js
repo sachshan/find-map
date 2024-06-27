@@ -143,7 +143,7 @@ const MapPage = () => {
   return (
     <div className='layout-container'>
       <h2>Pigeon Hangout App</h2>
-          <p>Welcome, {username} from group {group_key}!</p>
+          <h4>Welcome, {username} from group {group_key}!</h4>
           <Link to="/">Go Back to Login</Link>
       <div className='top-container'>
         <div className="map-container">

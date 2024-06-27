@@ -5,9 +5,21 @@ import LoginPage from './LoginPage';
 import MapPage from './MapPage';
 
 function App() {
+
+  const divStyle = {
+    backgroundImage: `url('/cafe.jpg')`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  };  
   return (
     <Router>
-      <div>
+      <div style={divStyle}>
+        
         <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/map/:username/:group_key" element={<MapPage />} /> {/* Updated route with placeholders */}
