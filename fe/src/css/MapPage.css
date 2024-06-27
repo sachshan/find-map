@@ -1,63 +1,110 @@
 /* MapPage.css */
 
-.map-container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 20px;
+body {
+  font-family: 'Arial', sans-serif;
   background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.layout-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.top-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+}
+
+.map-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.map-content {
+  flex: 1;
 }
 
 .map-container h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
+  margin: 0;
+  font-size: 24px;
   color: #333;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .map-container p {
-  font-size: 18px;
-  margin-bottom: 20px;
+  margin: 10px 0;
   color: #666;
 }
 
-.map-container .map {
+.map {
+  position: relative;
   margin-top: 20px;
-  width: 100%;
 }
 
-.map-container .map .overlay {
-  background-color: rgba(0, 123, 255, 0.8);
-  color: #fff;
-  padding: 5px 10px;
+.place-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.place-buttons button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.map-container .map .overlay:hover {
-  background-color: rgba(0, 123, 255, 1);
-}
-
-.map-container .back-to-login {
-  margin-top: 20px;
-}
-
-.map-container .back-to-login a {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
-.map-container .back-to-login a:hover {
-  background-color: #0056b3;
+.place-buttons button:hover {
+  background-color: #45a049;
+}
+
+.places-list {
+  width: 90%;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.places-list h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.places-list ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+
+.places-list li {
+  margin: 5px 0;
+  color: #666;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
 }
