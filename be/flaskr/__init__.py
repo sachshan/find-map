@@ -4,6 +4,8 @@ import sys
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS
 import logging
+from logging.handlers import RotatingFileHandler
+
 
 from .redis_be import Redis
 
@@ -13,7 +15,7 @@ def create_app():
     # Configure Flask app logging
     gunicorn_logger = logging.getLogger('gunicorn.error')
     app.logger.handlers = gunicorn_logger.handlers
-    app.logger.setLevel(gunicorn_logger.level)  
+    app.logger.setLevel(gunicorn_logger.level)
 
     CORS(app, resources={r"/*": {"origins": "*"}})
 
