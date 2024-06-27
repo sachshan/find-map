@@ -8,7 +8,7 @@ phases:
  pre_build:
   commands:
    - echo Logging in to Docker...
-   - docker login -u AWS -p $(aws ecr get-login-password --region $AWS_REGION) $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+   - docker login -u $username -p $password
  build:
   commands:
    - echo building dev images...
@@ -17,17 +17,17 @@ phases:
    - >
      docker build \
       -f be/Dockerfile \
-      -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-map-be:prod \
+      -t sachdeva257/find-map-be:prod \
       --build-arg GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY \
       ./be
    - >
      docker build \
       -f fe/Dockerfile \
-      -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-map-fe:prod \
+      -t sachdeva257/find-map-fe:prod \
       --build-arg REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL \
       ./fe
  post_build:
   commands:
    - echo pushing prod images to ECR...
-   - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-map-be:prod
-   - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-map-fe:prod
+   - docker push sachdeva257/find-map-be:prod
+   - docker push sachdeva257/find-map-fe:prod
