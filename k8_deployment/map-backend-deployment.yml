@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: map-backend
-        image: sachdeva257/find-map-be
+        image: sachdeva257/find-map-be:prod
         imagePullPolicy: Always
         env:
         - name: REDIS_HOST

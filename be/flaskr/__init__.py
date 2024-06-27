@@ -1,12 +1,19 @@
 import os
+import sys
 
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS
+import logging
 
 from .redis_be import Redis
 
 def create_app():
     app = Flask(__name__)
+
+    # Configure Flask app logging
+    app.logger.addHandler(logging.StreamHandler(sys.stdout))
+    app.logger.setLevel(logging.INFO)  
+
     CORS(app, resources={r"/*": {"origins": "*"}})
 
     @app.before_request
@@ -28,7 +35,9 @@ def create_app():
     @app.route('/healthz', methods=['GET'])
     def get_server_healthz():
         if redis.get_redis_client().ping():
+            app.logger.info("Server working")
             return {'message': 'This system works'}, 200
+        app.logger.error("Server not working")
         return {'message': 'Server not working'}, 500
     
 

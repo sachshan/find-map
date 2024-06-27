@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: map-frontend
-        image: sachdeva257/find-map-fe
+        image: sachdeva257/find-map-fe:prod
         imagePullPolicy: Always
         ports:
         - containerPort: 80
