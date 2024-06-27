@@ -24,7 +24,7 @@ const LoginPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username,
+          name: username,
           group_key,
         }),
       });
