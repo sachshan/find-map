@@ -2,13 +2,12 @@ version: 0.2
 
 env:
  variables:
-  AWS_REGION_2: "us-east-2"
-  REACT_APP_API_SERVICE_URL: "flask-react-alb-1422356172.us-east-1.elb.amazonaws.com"
+  REACT_APP_SERVER_URL: 'https://3e89-155-33-134-42.ngrok-free.app/v1'
 
 phases:
  pre_build:
   commands:
-   - echo Logging in to Amazon ECR...
+   - echo Logging in to Docker...
    - docker login -u AWS -p $(aws ecr get-login-password --region $AWS_REGION) $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
  build:
   commands:
@@ -18,19 +17,17 @@ phases:
    - >
      docker build \
       -f be/Dockerfile \
-      -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-be:prod \
-      --build-arg REDIS_HOST=$REDIS_HOST \
-      --build-arg REDIS_PORT=$REDIS_PORT \
+      -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-map-be:prod \
+      --build-arg GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY \
       ./be
    - >
      docker build \
       -f fe/Dockerfile \
-      -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-fe:prod \
-      --build-arg NODE_ENV=production \
-      --build-arg REACT_APP_API_SERVICE_URL=$REACT_APP_API_SERVICE_URL \
+      -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-map-fe:prod \
+      --build-arg REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL \
       ./fe
  post_build:
   commands:
    - echo pushing prod images to ECR...
-   - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-be:prod
-   - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/twtr-fe:prod
+   - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-map-be:prod
+   - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/find-map-fe:prod
