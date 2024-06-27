@@ -39,4 +39,10 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-image: url('../public/cafe.jpg'); /* Make sure the path is correct */
+  background-repeat: repeat; /* Ensures the image keeps repeating */
+  background-attachment: fixed; /* Keeps the image fixed on the viewport while the content scrolls */
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  margin: 0;
+  padding: 0;
 }

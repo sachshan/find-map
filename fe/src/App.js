@@ -6,19 +6,9 @@ import MapPage from './MapPage';
 
 function App() {
 
-  const divStyle = {
-    backgroundImage: `url('/cafe.jpg')`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  };  
   return (
     <Router>
-      <div style={divStyle}>
+      <div>
         
         <Routes>
         <Route path="/" element={<LoginPage />} />
